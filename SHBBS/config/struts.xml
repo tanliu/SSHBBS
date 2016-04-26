@@ -14,6 +14,7 @@
 	<constant name="struts.ui.theme" value="simple" />
 	
 
-   <include file="com/bbs/action/config/manager-struts.xml"></include>
-
+  <!--  <include file="com/bbs/action/config/manager-struts.xml"></include>
+   <include file="com/bbs/action/config/userLR-struts.xml"></include> -->
+   <include file="com/bbs/action/config/*-struts.xml"></include>
 </struts>

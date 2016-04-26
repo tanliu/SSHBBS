@@ -71,9 +71,6 @@ public class BaseDaoImpl<T> extends HibernateUtils  implements BaseDao<T>  {
         }
 		tx.commit();
 		session.close();
-		
-
-		
 	}
 
 

@@ -31,8 +31,4 @@ public interface BaseDao<T> {
 	//∑÷≤º≤È’“
 	public PageUtils<T> getPageResult(QueryUtils queryUtils, int pageNO,
 			int pageSize);
-	
-	
-	
-
 }

@@ -1,9 +1,9 @@
 <c3p0-config>
 	<default-config>
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/bbs?useUnicode=true&amp;characterEncoding=UTF-8
+		<property name="jdbcUrl">jdbc:sqlserver://localhost:1433;DatabaseName=bbs
 		</property>
-		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="user">root</property>
+		<property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="user">sa</property>
 		<property name="password">123456</property>
 		<property name="initialPoolSize">3</property>
 		<property name="maxPoolSize">6</property>

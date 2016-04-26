@@ -32,7 +32,7 @@ if(session.getAttribute("Email")==null){
 }
     
   %>
-    <form name="login" action="UserRegisterServlet" method="post">
+    <form name="login" action="registerresult.action" namespace="/">
      <h2>BBS用户注册</h2>
        <p>用户名:<input name="username" type="text" style="height:30px;width:300px">  &nbsp;&nbsp;<% if(!session.getAttribute("Uname").equals("true")) out.print("用户名不能为空");%><br/>
            <br/>
