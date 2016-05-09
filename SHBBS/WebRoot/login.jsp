@@ -21,7 +21,7 @@ font-size:24px;
     </style>
   </head>
   <body>
-    <form name="login" action="UserloginServlet" method="post">
+    <form name="login" action="loginresult.action" namespace="/">
      <input type="hidden" name="method" value="login">
      <h2>BBS论坛登录</h2>
        <p>  用户名:<input name="username" type="text" style="height:30px;width:300px"><br/>
