@@ -7,7 +7,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <%
    PageUtils<Blog> blogPageUtils=(PageUtils<Blog>)request.getAttribute("blogPageUtils");
+   
 		 %>	
+		  <%
+					for(int i=0;i<blogPageUtils.getPageData().size();i++)
+					System.out.println("title is："+blogPageUtils.getPageData().get(i).getTitle());
+					 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -91,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-lg-8">
 				<h1 class="page-header">我的帖子</h1>
 			</div>
-            <div class="col-lg-4" align="right" style="margin-top:30px;"><a href="BlogServlet?type=publish&use_id=1" class="btn btn-danger">我要发帖</a></div>
+            <div class="col-lg-4" align="right" style="margin-top:30px;"><a href="userblog!addUI.action" class="btn btn-danger">我要发帖</a></div>
 		</div><!--/.row-->
         
 
@@ -104,6 +109,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="panel-body">
 							<%
 					for(int i=0;i<blogPageUtils.getPageData().size();i++){
+					System.out.println("--------------"+blogPageUtils.getPageData().get(i).getTitle());
+					
 					 %>
 						<ul>
 							<li class="left clearfix">
@@ -117,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<p>
 										<%=blogPageUtils.getPageData().get(i).getTitle() %>
 									</p>
-									<div align="right"><a href="BlogServlet?type=delBlogs&pub_id=<%=blogPageUtils.getPageData().get(i).getId() %>" class="btn btn-default">删除</a><a href="BlogServlet?type=goalterBlogs&pub_id=<%=blogPageUtils.getPageData().get(i).getId()%>" class="btn btn-default">更改</a></div>
+									<div align="right"><a href="userblog!delete.action?id=<%=blogPageUtils.getPageData().get(i).getId() %>&useId=5" class="btn btn-default">删除</a><a href="userblog!editorUI.action?id=<%=blogPageUtils.getPageData().get(i).getId()%>&useId=5" class="btn btn-default">更改</a></div>
 								</div>
 							</li>
 
@@ -138,23 +145,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div align="center">
                       <nav>
                        <ul class="pagination pagination-lg">
-                         <% if(blogPageUtils.getTotalPage()>1&&blogPageUtils.getCurrentPage()>1){%> <li><a href="BlogServlet?type=showMyBlogs&currentPage=<%=blogPageUtils.getCurrentPage()-1 %>" aria-label="Previous"> <span aria-hidden="true">&raquo;</span> </a></li>
+                         <% if(blogPageUtils.getTotalPage()>1&&blogPageUtils.getCurrentPage()>1){%> <li><a href="userblog!showMyBlogs.action?useId=5&currentPage=<%=blogPageUtils.getCurrentPage()-1 %>" aria-label="Previous"> <span aria-hidden="true">&raquo;</span> </a></li>
                          <%} %>
                          <%
                          for(int i=1;i<=blogPageUtils.getTotalPage();i++){
                            if(blogPageUtils.getCurrentPage()==i){
                           %>
-                         <li class="active"><a href="BlogServlet?type=showMyBlogs&currentPage=<%=i%>"><%=i %></a></li>
+                         <li class="active"><a href="userblog!showMyBlogs.action?useId=5&currentPage=<%=i%>"><%=i %></a></li>
                          <%
                          }
                          else{
                          %>  
-                         <li><a href="BlogServlet?type=showMyBlogs&currentPage=<%=i%>"><%=i %></a></li>
+                         <li><a href="userblog!showMyBlogs.action?useId=5&currentPage=<%=i%>"><%=i %></a></li>
                          <% 
                          }
                          }
                           %>
-                           <%if(blogPageUtils.getTotalPage()>1&&blogPageUtils.getCurrentPage()<blogPageUtils.getTotalPage()){ %><li><a href="BlogServlet?type=showMyBlogs&currentPage=<%=blogPageUtils.getCurrentPage()+1 %>" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
+                           <%if(blogPageUtils.getTotalPage()>1&&blogPageUtils.getCurrentPage()<blogPageUtils.getTotalPage()){ %><li><a href="userblog!showMyBlogs.action?useId=5&currentPage=<%=blogPageUtils.getCurrentPage()+1 %>" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
                       
                       <%} %>
                         </ul>

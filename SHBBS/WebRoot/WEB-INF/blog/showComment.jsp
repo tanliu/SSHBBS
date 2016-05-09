@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-lg-8">
 				<h1 class="page-header">${blog.getTitle() }</h1>
 			</div>
-            <div class="col-lg-4" align="right" style="margin-top:30px;"><a href="ReplyServlet?type=goAddComment&pub_id=<%=pub_id %>" class="btn btn-danger">说点什么吧</a></div>
+            <div class="col-lg-4" align="right" style="margin-top:30px;"><a href="userreply!addUI.action?pub_id=${blog.getId() }" class="btn btn-danger">说点什么吧</a></div>
 		</div><!--/.row-->
         
 
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="primary-font"><font color="red">楼主：${blog.getAuthor() }</font></strong> <small class="text-muted">${blog.getTime() }</small>
+										<strong class="primary-font"><font color="red">楼主：${blog.getUseId() }</font></strong> <small class="text-muted">${blog.getTime() }</small>
 									</div>
 									<p>
 										<font color="red">${blog.getContent() }</font>
@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="primary-font">作者：<%=replyPageUtils.getPageData().get(i).getAuthor() %></strong> <small class="text-muted"><%=replyPageUtils.getPageData().get(i).getTime() %></small>
+										<strong class="primary-font">作者：<%=replyPageUtils.getPageData().get(i).getUseId() %></strong> <small class="text-muted"><%=replyPageUtils.getPageData().get(i).getTime() %></small>
 									</div>
 									<p>
 										<%=replyPageUtils.getPageData().get(i).getContent() %>
@@ -160,24 +160,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul class="pagination pagination-lg">
                          
                          
-                      <% if(replyPageUtils.getTotalPage()>1&&replyPageUtils.getCurrentPage()>1){ %><li><a href="ReplyServlet?type=showComment&currentPage=<%=replyPageUtils.getCurrentPage()-1 %>&pub_id=<%=pub_id%>" aria-label="Previous"> <span aria-hidden="true">&raquo;</span> </a></li>
+                      <% if(replyPageUtils.getTotalPage()>1&&replyPageUtils.getCurrentPage()>1){ %><li><a href="userreply!showCommentUI.action?currentPage=<%=replyPageUtils.getCurrentPage()-1 %>&pub_id=${blog.getId()} " aria-label="Previous"> <span aria-hidden="true">&raquo;</span> </a></li>
                          
                          <%} %>
                           <%
                          for(int i=1;i<=replyPageUtils.getTotalPage();i++){
                            if(replyPageUtils.getCurrentPage()==i){
                           %>
-                         <li class="active"><a href="ReplyServlet?type=showComment&currentPage=<%=i %>&pub_id=<%=pub_id%>"><%=i %></a></li>
+                         <li class="active"><a href="userreply!showCommentUI.action?currentPage=<%=i %>&pub_id=${blog.getId()}"><%=i %></a></li>
                          <%
                          }
                          else{
                          %>  
-                         <li><a href="ReplyServlet?type=showComment&currentPage=<%=i %>&pub_id=<%=pub_id%>"><%=i %></a></li>
+                         <li><a href="userreply!showCommentUI.action?currentPage=<%=i %>&pub_id=${blog.getId()}"><%=i %></a></li>
                          <% 
                          }
                          }
                           %>
-                         <%if(replyPageUtils.getTotalPage()>1&&replyPageUtils.getCurrentPage()<replyPageUtils.getTotalPage()){ %> <li><a href="ReplyServlet?type=showComment&currentPage=<%=replyPageUtils.getCurrentPage()+1 %>&pub_id=<%=pub_id%>" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
+                         <%if(replyPageUtils.getTotalPage()>1&&replyPageUtils.getCurrentPage()<replyPageUtils.getTotalPage()){ %> <li><a href="userreply!showCommentUI.action?currentPage=<%=replyPageUtils.getCurrentPage()+1 %>&pub_id=${blog.getId()}" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
                       
                        <% }%>
                         </ul>

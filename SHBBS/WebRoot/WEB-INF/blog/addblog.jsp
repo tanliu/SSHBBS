@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="panel panel-default">
 
 					<div class="panel-body">
-						<form role="form" action="BlogServlet?type=addBlog" method="post">
+						<form role="form" action="userblog!add.action?useId=5" method="post">
 						<div class="col-md-8">
 
 							
