@@ -102,7 +102,7 @@
 			<div class="col-lg-12">
 				<table class="table table-bordered" align="center">
 					<caption>
-						<form action="manager/manager_listUI.action">
+						<form action="manager/manager_listUI.action" method="post">
 						    <input type="hidden" name="currentPage" value="0">
 						    <input type="hidden" name="pageSize" value="2">
 							<div class="input-group col-md-3">

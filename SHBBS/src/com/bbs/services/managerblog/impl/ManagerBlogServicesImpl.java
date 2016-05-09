@@ -2,6 +2,11 @@ package com.bbs.services.managerblog.impl;
 
 import java.io.Serializable;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import com.bbs.dao.managerblog.ManagerBlogDao;
 import com.bbs.dao.managerblog.impl.ManagerBlogDaoImpl;
 import com.bbs.entity.blog.Blog;
@@ -21,12 +26,18 @@ import com.bbs.utils.QueryUtils;
  * ÐÞ¸Ä±¸×¢£º 
  * @version 
  */ 
+
+@Service(value=ManagerBlogServices.SERVICE_NAME)
 public class ManagerBlogServicesImpl extends BaseServicesImpl<Blog> implements
 		ManagerBlogServices {
 	
-	static ManagerBlogDao managerBlogDao=new ManagerBlogDaoImpl();
-	public ManagerBlogServicesImpl() {
-		super(managerBlogDao);
+	ManagerBlogDao managerBlogDao;
+	
+	@Resource(name=ManagerBlogDao.DAO_NAME)
+	public void setManagerBlogDao(ManagerBlogDao managerBlogDao) {
+		super.setBaseDao(managerBlogDao);
+		this.managerBlogDao = managerBlogDao;
+		
 	}
 
 

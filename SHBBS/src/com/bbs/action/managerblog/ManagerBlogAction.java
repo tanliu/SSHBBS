@@ -1,24 +1,33 @@
 package com.bbs.action.managerblog;
 
-import java.io.UnsupportedEncodingException;
+
+
+import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.bbs.action.ManagerAction;
 import com.bbs.entity.blog.Blog;
 import com.bbs.services.managerblog.ManagerBlogServices;
-import com.bbs.services.managerblog.impl.ManagerBlogServicesImpl;
-import com.bbs.utils.PageUtils;
 import com.bbs.utils.QueryUtils;
-import com.bbs.utils.TUtils;
 
+/** 
+ * 项目名称：SHBBS
+ * 类名称：ManagerBlogAction 
+ * 类描述： 
+ * 创建人：坛子
+ * 创建时间：2016年4月24日 下午7:54:56
+ * 修改人：TanLiu 
+ * 修改时间：2016年4月24日 下午7:54:56
+ * 修改备注： 
+ * @version 
+ */ 
 public class ManagerBlogAction extends ManagerAction<Blog> {
 	
 	Blog blog=this.getModel();
-	
+	@Resource(name=ManagerBlogServices.SERVICE_NAME)
+	ManagerBlogServices mBlogServices;	
 	private String[] blogIds;
-	
-	
 	
 	public String[] getBlogIds() {
 		return blogIds;
@@ -28,7 +37,7 @@ public class ManagerBlogAction extends ManagerAction<Blog> {
 		this.blogIds = blogIds;
 	}
 
-	ManagerBlogServices mBlogServices=new ManagerBlogServicesImpl();
+
 
 	@Override
 	public String listUI() {

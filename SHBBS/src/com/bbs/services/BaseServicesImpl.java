@@ -23,12 +23,8 @@ public class BaseServicesImpl<T> implements BaseServices<T>  {
 	
 	private BaseDao<T> baseDao;
 	
-	public BaseServicesImpl(BaseDao<T> baseDao){
-		this.baseDao=baseDao;
-	}
-	
-	public BaseServicesImpl() {
-		// TODO Auto-generated constructor stub
+	public void setBaseDao(BaseDao<T> baseDao) {
+		this.baseDao = baseDao;
 	}
 
 
