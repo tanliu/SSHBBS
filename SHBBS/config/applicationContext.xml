@@ -78,6 +78,6 @@
       <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
     
-    <import resource="com/bbs/services/config/test-spring.xml"/>
+    <import resource="com/bbs/services/config/*-spring.xml"/>
 
 </beans>
